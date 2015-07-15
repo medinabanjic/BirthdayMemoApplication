@@ -39,6 +39,7 @@ public class Welcome extends JFrame {
 
 	JButton wLogIn = new JButton("LOG IN");
 	JButton wExit = new JButton("EXIT");
+	JButton wGit = new JButton("GIT");
 
 	// Text Fields
 
@@ -76,6 +77,7 @@ public class Welcome extends JFrame {
 		welcome1.setPreferredSize(new Dimension(300, 310));
 		welcome1.add(wLabel1);
 		welcome1.add(wUsername);
+		welcome1.add(wGit);
 
 		// Log In button
 		welcome1.add(wLogIn);
@@ -121,6 +123,22 @@ public class Welcome extends JFrame {
 			}
 		});
 
+		// GIT button
+		wGit.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					String url = "https://github.com/MedinaBanjicBITCamp/BirthdayMemoApplication";
+					java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
+				} catch (java.io.IOException e1) {
+					System.out.println(e1.getMessage());
+				}
+
+			}
+		});
+
+		// Exit button
 		welcome1.add(wExit);
 		wExit.addActionListener(new ActionListener() {
 
