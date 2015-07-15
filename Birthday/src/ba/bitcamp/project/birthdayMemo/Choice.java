@@ -5,7 +5,6 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -13,7 +12,6 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -37,17 +35,9 @@ public class Choice extends JFrame {
 
 	JLabel picLabel = new JLabel();
 
-	public Choice() {
-		// Choice frame
-		try {
-			BufferedImage myPicture = ImageIO
-					.read(new File(
-							"/Users/banjic/Desktop/Projekat/presents.jpg"));
-			picLabel = new JLabel(new ImageIcon(myPicture));
-			choose1.add(picLabel);
-		} catch (IOException ex) {
-			// handle exception...
-		}
+	public Choice() throws IOException {
+		picLabel = new JLabel(new ImageIcon(Choice.class.getResource("/ba/bitcamp/project/birthdayMemo/presents.jpg")));
+		choose1.add(picLabel);
 		setTitle("What do You want to do?");
 		setBackground(Color.WHITE);
 		setLayout(new BorderLayout());

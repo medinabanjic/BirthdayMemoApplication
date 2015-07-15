@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 import javax.swing.JButton;
@@ -123,7 +124,8 @@ public class Month extends JFrame {
 			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
-
+		String[] text = new String[array.length];
+		int j = 0;
 		for (int i = 0; i < array.length; i++) {
 
 			String line = array[i];
@@ -134,13 +136,31 @@ public class Month extends JFrame {
 			String months = date.substring(4, 5);
 
 			if (months.equals(month)) {
-				info.setText(user + "'s birthday is on: " + date);
-				break;
-			} else {
-				info.setText(null);
+				text[j] = user + "'s birthday is on: " + date;
+				j++;
+			}
+		}
+		int counter1 = 0;
+		for (int i = 0; i < text.length; i++) {
+			if (text[i] == null) {
+				counter1++;
 			}
 		}
 
+		text = Arrays.copyOf(text, text.length - counter1);
+		String s = "";
+		if (text.length > 0) {
+			for (int x = 0; x < text.length; x++) {
+				if (x == text.length - 1) {
+					s += text[x];
+				} else {
+					s += text[x] + "<br>";
+				}
+			}
+
+			info.setText("<html>" + s + "</html>");
+
+		}
 	}
 
 	public String getNameF() {

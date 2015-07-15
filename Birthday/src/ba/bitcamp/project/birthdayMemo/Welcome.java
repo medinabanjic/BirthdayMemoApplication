@@ -6,14 +6,11 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -50,17 +47,11 @@ public class Welcome extends JFrame {
 	JTextArea wNote = new JTextArea(" Note: " + "\n If you are a new user, choose your username "
 			+ "\n and use it next time. It will automatically " + "\n save it.");
 
-	JLabel picLabel = new JLabel();
+	JLabel picLabel;
 
-	public Welcome() {
-		// Welcome frame
-		try {
-			BufferedImage myPicture = ImageIO.read(new File("/Users/banjic/Desktop/Projekat/happy.jpg"));
-			picLabel = new JLabel(new ImageIcon(myPicture));
-			welcome1.add(picLabel);
-		} catch (IOException ex) {
-			// handle exception...
-		}
+	public Welcome() throws IOException {
+		picLabel = new JLabel(new ImageIcon(Welcome.class.getResource("/ba/bitcamp/project/birthdayMemo/happy.jpg")));
+		welcome1.add(picLabel);
 
 		setTitle("Welcome!");
 		setBackground(Color.WHITE);
@@ -96,7 +87,12 @@ public class Welcome extends JFrame {
 						String user = sc.nextLine();
 						if (user.equals(wUsername.getText())) {
 							isNew = false;
-							new Choice();
+							try {
+								new Choice();
+							} catch (IOException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
 							break;
 						}
 
@@ -116,7 +112,12 @@ public class Welcome extends JFrame {
 					} catch (FileNotFoundException e1) {
 						e1.printStackTrace();
 					}
-					new Choice();
+					try {
+						new Choice();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					setVisible(false);
 				}
 
@@ -161,7 +162,12 @@ public class Welcome extends JFrame {
 	}
 
 	public static void main(String[] args) {
-		new Welcome();
+		try {
+			new Welcome();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 

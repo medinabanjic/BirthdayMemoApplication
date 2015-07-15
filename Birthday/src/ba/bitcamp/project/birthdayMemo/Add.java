@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
@@ -44,8 +45,7 @@ public class Add extends JFrame {
 
 	// Text Areas
 
-	JTextArea aNote = new JTextArea("Note: "
-			+ "\nPlease enter date in\nformat dd.mm.");
+	JTextArea aNote = new JTextArea("Note: " + "\nPlease enter date in\nformat dd.mm.");
 
 	// files
 
@@ -106,8 +106,7 @@ public class Add extends JFrame {
 					e2.printStackTrace();
 				}
 
-				array[array.length - 1] = aName.getText() + " "
-						+ aDate.getText();
+				array[array.length - 1] = aName.getText() + " " + aDate.getText();
 
 				try {
 
@@ -120,7 +119,12 @@ public class Add extends JFrame {
 				}
 
 				setVisible(false);
-				new Choice();
+				try {
+					new Choice();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		add1.add(aCancel);
