@@ -3,11 +3,12 @@
 This is the application for storing birthdays. 
 
 It is written in Java as a part of our mini GUI project, after a week of GUI lessons. 
-This app has several classes, all of them, except Files, represent JFrames. 
+This app has several classes. All of them, except Files, represent JFrames. 
+
 Main functions are:
-Add birthday
-Remove birtday
-Search for birthday
+- Add birthday
+- Remove birtday
+- Search for birthday
 
 You can add birthday by entering name and date (dd.mm. format).
 
