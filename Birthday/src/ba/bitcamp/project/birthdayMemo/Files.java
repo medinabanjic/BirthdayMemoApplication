@@ -4,13 +4,15 @@ import java.io.File;
 
 public class Files {
 
-	private File users = null;
+	private File users;
 
-	private File active = null;
+	private File active;
 
 	public Files() {
-		this.users = new File("src/ba/bitcamp/project/birthdayMemo/users");
-		this.active = new File("src/ba/bitcamp/project/birthdayMemo/active");
+		File s = new File("");
+		this.users = new File(s.getAbsolutePath() + "/users.txt");
+		this.active = new File(s.getAbsolutePath() + "/active.txt");
+		
 	}
 
 	public File getUsers() {
