@@ -7,16 +7,18 @@ It is written in Java as a part of our mini GUI project, after a week of GUI les
 
 Main functions are:
 
-Add birthday
-Remove birtday
-Search for birthday
+- Add birthday
+- Remove birtday
+- Search for birthday
+
 You can add birthday by entering name and date (dd.mm. format).
 
 Search is divided in three functios:
 
-via name
-via month
-view all
+- via name
+- via month
+- view all
+
 Remove requires name, and then it finds entry and delete it.
 
 Log out exits the application.
