@@ -27,6 +27,7 @@ public class Month extends JFrame {
 	// Labels
 	JLabel enquiry = new JLabel("Enter month: ");
 	JLabel info = new JLabel("");
+	JLabel example = new JLabel("ex: 5 = May, 12 = December");
 
 	// TextField
 	JTextField month = new JTextField(15);
@@ -51,6 +52,7 @@ public class Month extends JFrame {
 		panel.setLayout(new FlowLayout());
 		panel.setPreferredSize(new Dimension(150, 150));
 		panel.add(enquiry);
+		panel.add(example);
 		panel.add(month);
 
 		// OK button
